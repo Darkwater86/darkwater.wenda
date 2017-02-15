@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+    #*
+    块注释
+
+    $!{value1}
+    $!{value2}   ## 如果不存在强制为空，行注释
+    colors:$!{colors}
+    #foreach($color in $colors)
+        This is color:$!{foreach.index} $color $!{foreach.count}
+    #end
+    map:$!{map.entrySet()}
+    #foreach($key in $map.keySet())
+        key: $!{foreach.count} $!{key}
+    #end
+
+    #set($title ="Darkwater")
+    $!{title}
+
+    Parse: #parse("header.html")
+    Parse: #parse("header.html") ##此处不能省略之后的.html，不然会出现500
+    Include: #include("header.html") ##include引入的都是一些静态文本 ，parse可以对文本进行解析，include不能
+    *#
+    There is an error
+</pre>
+</body>
+</html>
