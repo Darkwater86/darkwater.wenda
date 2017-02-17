@@ -15,6 +15,9 @@ import java.util.List;
 public class QuestionService {
     @Autowired
     QuestionDao questionDao;
+
+    @Autowired
+    SensitiveService sensitiveService;
     /**
      * @return 问题id(成功)
      * @return 0（失败）
@@ -23,6 +26,8 @@ public class QuestionService {
         // TODO: 2017/2/9 敏感词过滤
         question.setContent(HtmlUtils.htmlEscape(question.getContent()));
         question.setTitle(HtmlUtils.htmlEscape(question.getTitle()));
+        question.setContent(sensitiveService.filter(question.getContent()));
+        question.setTitle(sensitiveService.filter(question.getTitle()));
         return questionDao.addQuestion(question)>0?question.getId():0;
     }
 

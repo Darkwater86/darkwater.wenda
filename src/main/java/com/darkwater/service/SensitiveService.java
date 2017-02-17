@@ -139,10 +139,10 @@ public class SensitiveService implements InitializingBean {
             this.end = end;
         }
     }
-
+//
 //    public static void main(String[] args){
 //        SensitiveService s = new SensitiveService();
-//        s.addWord("赌博");
+//        s.addWord("赌 博");
 //        s.addWord("外挂");
 //        System.out.println(s.filter("你好赌  博啊 啊啊外  挂"));
 //    }
