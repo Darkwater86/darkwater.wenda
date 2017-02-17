@@ -94,7 +94,9 @@ public class SensitiveService implements InitializingBean {
         TrieNode tempNode = rootNode;
         for (int i = 0; i < lineText.length(); ++i) {
             Character c = lineText.charAt(i);
-
+            if(isSymbol(c)){
+                continue;
+            }
             TrieNode node = tempNode.getSubNode(c);
             if (null == node) {
                 node = new TrieNode();
@@ -138,10 +140,10 @@ public class SensitiveService implements InitializingBean {
         }
     }
 
-    public static void main(String[] args){
-        SensitiveService s = new SensitiveService();
-        s.addWord("赌博");
-        s.addWord("外挂");
-        System.out.println(s.filter("你好赌  博啊 啊啊外  挂"));
-    }
+//    public static void main(String[] args){
+//        SensitiveService s = new SensitiveService();
+//        s.addWord("赌博");
+//        s.addWord("外挂");
+//        System.out.println(s.filter("你好赌  博啊 啊啊外  挂"));
+//    }
 }
