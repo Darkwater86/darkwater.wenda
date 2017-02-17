@@ -1,5 +1,6 @@
 package com.darkwater.service;
 
+import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +55,16 @@ public class SensitiveService implements InitializingBean {
         while (position < text.length()){
             char c = text.charAt(position);
 
+            //如果是符号就跳过
+            if(isSymbol(c)){
+                if (tempNode == rootNode){
+                    ++begin;
+                    result.append(c);
+                }
+                ++position;
+                continue;
+            }
+
             tempNode  = tempNode.getSubNode(c);
 
             if (null == tempNode){
@@ -97,6 +108,14 @@ public class SensitiveService implements InitializingBean {
         }
     }
 
+    //过滤符号
+    private boolean isSymbol(char c){
+        int ic = (int)c;
+        //东亚文字在0x2E80到0x9FFF
+        return !CharUtils.isAsciiAlphanumeric(c)&&( ic < 0x2E80 || ic > 0x9FFF );
+    }
+
+    //敏感词树形结构
     private class TrieNode {
         private boolean end = false;
 
@@ -123,6 +142,6 @@ public class SensitiveService implements InitializingBean {
         SensitiveService s = new SensitiveService();
         s.addWord("赌博");
         s.addWord("外挂");
-        System.out.println(s.filter("你好赌博啊啊啊外挂"));
+        System.out.println(s.filter("你好赌  博啊 啊啊外  挂"));
     }
 }
