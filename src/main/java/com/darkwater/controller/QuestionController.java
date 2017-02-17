@@ -3,6 +3,7 @@ package com.darkwater.controller;
 import com.darkwater.dao.QuestionDao;
 import com.darkwater.model.HostHolder;
 import com.darkwater.model.Question;
+import com.darkwater.service.QuestionService;
 import com.darkwater.utils.WendaUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,9 @@ public class QuestionController {
     QuestionDao questionDao;
 
     @Autowired
+    QuestionService questionService;
+
+    @Autowired
     HostHolder hostHolder;
     @RequestMapping(value = {"question/add"},method = RequestMethod.POST)
     @ResponseBody
@@ -42,7 +46,7 @@ public class QuestionController {
             }else {
                 question.setUserId(hostHolder.getUser().getId());
             }
-            if(questionDao.addQuestion(question)>0){
+            if(questionService.addQuestion(question)>0){
                 return WendaUtils.getJsonString(0);
             }
         }catch (Exception e){
