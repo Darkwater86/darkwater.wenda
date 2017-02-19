@@ -9,10 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -53,5 +51,13 @@ public class QuestionController {
             LOGGER.error("增加问题失败"+e.getMessage());
         }
         return WendaUtils.getJsonString(1,"失败");
+    }
+
+    @RequestMapping(path = {"question/{questionId}"})
+    public String Question(Model model,
+                           @PathVariable("questionId")int  questionId){
+        Question question = questionService.getQuestionById(questionId);
+        model.addAttribute("question",question);
+        return "detail";
     }
 }

@@ -38,4 +38,9 @@ public class QuestionService {
     public List<Question> getLatestQuestions(int userId, int offdset, int limit){
         return questionDao.selectLatestQuestions(userId,offdset,limit);
     }
+
+
+    public Question getQuestionById(int id){
+        return  questionDao.selectById(id);
+    }
 }

@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="post-content" data-author-name="${vo.user.name}" data-entry-url="http://zhuanlan.zhihu.com/p/19831487">
                                                 <div class="zh-summary summary clearfix">$!{vo.question.content}…
-                                                    <a href="http://zhuanlan.zhihu.com/p/19831487" class="toggle-expand">显示全部</a></div>
+                                                    <a href="question/$!{vo.question.getId()}" class="toggle-expand">显示全部</a></div>
                                                 <p class="default">
                                                     <a class="post-link entry-link" target="_blank" href="http://zhuanlan.zhihu.com/p/19831487">$date.format('yyyy-MM-dd HH:mm:ss',$!{vo.question.createdDate})</a></p>
                                             </div>

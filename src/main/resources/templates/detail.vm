@@ -9,7 +9,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-ZA-Response-Id" content="4b3ad1bf1e8045f1a016c31f5fbb40c8">
 
-<title>现在的微博里僵尸和水军泛滥，随便一个明星的粉丝力有八成都不是真粉丝。请问这些网络水军是怎么来的啊？ - 牛客</title>
+    <title>$!{question.getTitle()}</title>
 
 <meta name="apple-itunes-app" content="app-id=432274380, app-argument=nowcoder://questions/36301524">
 
@@ -24,7 +24,7 @@
 </head>
 
 <body class="zhi ">
-#parse("header.html")
+#parse("head.vm")
     <div class="zu-global-notify zu-global-notify-info" id="zh-question-redirect-info" style="display:none"></div>
     <div class="zu-global-notify zu-global-notify-info" id="zh-question-notification-summary" style="display:none;">
         <div class="zg-wrap">
@@ -53,25 +53,16 @@
                 <div id="zh-question-title" data-editable="true" class="zm-editable-status-normal">
                     <h2 class="zm-item-title">
 
-                    <span class="zm-editable-content">现在的微博里僵尸和水军泛滥，请问这些网络水军是怎么来的啊？</span>
+                    <span class="zm-editable-content">$!{question.getTitle()}</span>
 
                     </h2>
                 </div>
                 <div id="zh-question-detail" class="zm-item-rich-text zm-editable-status-normal" data-resourceid="6727688" data-action="/question/detail">
-                    <div class="zm-editable-content">有没有人能系统的讲一下网络水军的发展历史？</div>
+                    <div class="zm-editable-content">$!{question.getTitle()}</div>
                 </div>
                 <div class="zm-side-section">
                     <div class="zm-side-section-inner" id="zh-question-side-header-wrap">
                         <button data-follow="q:m:button" class="follow-button zg-follow zg-btn-green" data-id="6727688">关注问题</button>
-                        <div class="zg-btn-white goog-inline-block goog-menu-button" id="zh-question-operation-menu" role="button" aria-expanded="false" tabindex="0" aria-haspopup="true" style="-webkit-user-select: none;">
-                            <div class="goog-inline-block goog-menu-button-outer-box">
-                                <div class="goog-inline-block goog-menu-button-inner-box">
-                                    <div class="goog-inline-block goog-menu-button-caption">
-                                        <i class="zg-icon-dropdown-menu zg-icon"></i>
-                                        <b class="hide-text">设置</b></div>
-                                    <div class="goog-inline-block goog-menu-button-dropdown">&nbsp;</div></div>
-                            </div>
-                        </div>
                         <div class="goog-menu goog-menu-vertical" role="menu" aria-haspopup="true" style="-webkit-user-select: none; visibility: visible; left: 92px; top: 33px; display: none;">
                             <div class="goog-menuitem" role="menuitem" id=":8" style="-webkit-user-select: none;">
                                 <div class="goog-menuitem-content" style="-webkit-user-select: none;">使用匿名身份</div></div>
@@ -81,26 +72,12 @@
                         <div class="zh-question-followers-sidebar">
                             <div class="zg-gray-normal">
                                 <a href="">
-                                    <strong>9</strong></a>人关注该问题</div>
+                                    <strong>$!{question.getCommentCount()}</strong></a>人关注该问题</div>
                             <div class="list zu-small-avatar-list zg-clear">
                                 <span class="zm-item-link-avatar">
                                     <img title="匿名用户" class="zm-item-img-avatar" src="images/res/aadd7b895_s.jpg"></span>
                                 <a data-tip="p$b$yi-yi-98-91-99" class="zm-item-link-avatar" href="" data-original_title="奕奕">
-                                    <img src="images/res/6ceea810748d179f57cac0baa5cf9592_s.jpg" class="zm-item-img-avatar"></a>
-                                <a data-tip="p$b$wang-wu-29-54" class="zm-item-link-avatar" href="" data-original_title="王五">
-                                    <img src="images/res/da8e974dc_s.jpg" class="zm-item-img-avatar"></a>
-                                <a data-tip="p$b$huang-xiang-90-99" class="zm-item-link-avatar" href="" data-original_title="案小声">
-                                    <img src="images/res/19456ebfe8b207320735f282769ac635_s.jpg" class="zm-item-img-avatar"></a>
-                                <a data-tip="p$b$yingxiaodao" class="zm-item-link-avatar" href="" data-original_title="营销岛">
-                                    <img src="images/res/11be4a90ed938abfbab4899df56ee754_s.png" class="zm-item-img-avatar"></a>
-                                <a data-tip="p$b$hero-hou-23" class="zm-item-link-avatar" href="" data-original_title="Hero Hou">
-                                    <img src="images/res/da8e974dc_s.jpg" class="zm-item-img-avatar"></a>
-                                <a data-tip="p$b$jin-hua-zhang-10" class="zm-item-link-avatar" href="" data-original_title="荷尔蒙毒品">
-                                    <img src="images/res/d207854fffc9e0289fbd6bbbb3986988_s.jpg" class="zm-item-img-avatar"></a>
-                                <a title="宇轩" data-tip="p$t$yu-xuan-91-11" class="zm-item-link-avatar" href="">
-                                    <img src="images/res/1ac7840eeb19ada0bbf85f51702d5784_s.jpg" class="zm-item-img-avatar"></a>
-                                <a title="尹锋" data-tip="p$t$yin-feng" class="zm-item-link-avatar" href="">
-                                    <img src="images/res/da8e974dc_s.jpg" class="zm-item-img-avatar"></a>
+                                    <img src="$!{user.getHeadUrl()}" class="zm-item-img-avatar"></a>
                             </div>
                         </div>
                     </div>
@@ -399,102 +376,9 @@
                     </div>
                 </div>
                 <!-- 版权演示 -->
-                <script type="text/x-template" id="copyright-demo-template">< article >
-
-                    <section > <p class = "copyright-demo-title" > 这是你的回答正文 < /p>
-    <div class="copyright-demo-region"></div > <div class = "copyright-demo-region" ></div>
-    <div class="copyright-demo-region"></div > <div class = "copyright-demo-region" ></div>
-    <div class="copyright-demo-region"></div ></section>
-
-    <section>
-    <p class="copyright-demo-title"> 当其他人想复制你的一段回答 </p > <div class = "copyright-demo-region frame2-region"id = "copyright-demo-region1" > <span class = "copyright-ico-indicator"id = "copyright-demo-indicator" > </span></div > <div class = "copyright-demo-region frame2-region"id = "copyright-demo-region2" ></div>
-    <div class="copyright-demo-region frame2-region" id="copyright-demo-region3"></div > <div class = "copyright-demo-region frame2-region"id = "copyright-demo-region4" ></div>
-    <div class="copyright-demo-region"></div ></section>
-
-    <section id="copyright-demo-frame3">
-    <p class="copyright-demo-title"> 复制将受限，同时会弹出提醒 </p > <div class = "copyright-demo-region copyright-demo-region-selected" ></div>
-    <div class="copyright-demo-region copyright-demo-region-selected"></div > <div class = "copyright-demo-region copyright-demo-region-selected" ></div>
-    <div class="copyright-demo-region copyright-demo-region-selected"></div > <div class = "copyright-demo-region" ></div>
-    <span class="copyright-ico-pointer copyright-demo-pointer"></span > </section></article > </script>
             </div>
         </div>
     </div>
-    <script type="text/json" class="json-inline" data-name="guiders2">{
-            "exclusive-popover": {},
-            "section": {},
-            "editor": []
-        }</script>
-    <script type="text/json" class="json-inline" data-name="current_user">["\u80e1\u539f", "hu-yuan-24-48", "https:\/\/pic1.zhimg.com\/0c6a39621ab1d456b1e6e492d0becc0c_s.jpg", "69e344deb3bd4d35db07194565261bbe", "", 0, 0, true, "422018883@qq.com", "http:\/\/mail.qq.com", 0, true, false, false, "734705672150609920", false]</script>
-    <script type="text/json" class="json-inline" data-name="user_status">[null, null]</script>
-    <script type="text/json" class="json-inline" data-name="env">["nowcoder.com", "comet.nowcoder.com", false, null, false]</script>
-    <script type="text/json" class="json-inline" data-name="permissions">[]</script>
-    <script type="text/json" class="json-inline" data-name="ga_vars">{
-            "user_created": 1467947482000,
-            "now": 1467969333000,
-            "abtest_mask": "---------1--------------------",
-            "user_attr": [1, 0, 0, "-", "-"],
-            "user_hash": "69e344deb3bd4d35db07194565261bbe"
-        }</script>
-    <script type="text/json" class="json-inline" data-name="ra-urls">{
-            "Report": "https:\/\/static.nowcoder.com\/static\/revved\/-\/apps\/Report.d6e20840.js",
-            "Community": "https:\/\/static.nowcoder.com\/static\/revved\/-\/apps\/Community.4e11c449.js",
-            "OrgAnalytics": "https:\/\/static.nowcoder.com\/static\/revved\/-\/apps\/OrgAnalytics.47e1a483.js",
-            "common": "https:\/\/static.nowcoder.com\/static\/revved\/-\/apps\/common.ed1d17c3.js",
-            "CommentApp": "https:\/\/static.nowcoder.com\/static\/revved\/-\/apps\/CommentApp.2ab02258.js"
-        }</script>
-    <script type="text/json" class="json-inline" data-name="current_question">{
-            "status": "normal",
-            "editPermission": false,
-            "qid": 6727688,
-            "askAboutMember": 0,
-            "isEditLocked": false,
-            "detailEditReasonRequired": true,
-            "isAnon": 0,
-            "showInvitePanel": true,
-            "isOrg": false,
-            "isLocked": 0,
-            "urlToken": 36301524
-        }</script>
-    <script type="text/json" class="json-inline" data-name="current_question_owner">false</script>
-    <script type="text/json" class="json-inline" data-name="draft">[]</script>
-    <script type="text/json" class="json-inline" data-name="my_answer">{}</script>
-    <script type="text/json" class="json-inline" data-name="current_question_bio">{
-            "selected_bio": "headline",
-            "type": "HEADLINE",
-            "value": null
-        }</script>
-    <script type="text/json" class="json-inline" data-name="redirect_to">""</script>
-    <script src="../scripts/vendor.ff76fbae.js"></script>
-    <script src="../scripts/base.fb262f0e.js"></script>
-    <script src="../scripts/common.fed5411f.js"></script>
-    <script src="../scripts/richtexteditor.aa0a4005.js" async=""></script>
-    <script src="../scripts/page-main.5d4c554d.js"></script>
-    <meta name="entry" content="ZH.entrySQ" data-module-id="page-main">
-    <script type="text/zscript" znonce="8d61d9c6697d4080ab36aa3bdb21b9d8"></script>
-    <input type="hidden" name="_xsrf" value="21aa1c8d254df2899b23ab9afbd62a53">
-    <div class="zh-backtotop" style="opacity: 0; display: none;">
-        <a data-action="backtotop" data-tip="s$r$回到顶部" href="javascript:;" class="btn-backtotop btn-action">
-            <div class="arrow"></div>
-            <div class="stick"></div>
-        </a>
-    </div>
-    <div id="copyright-demo-helper" style="display: none; position: absolute;">
-        <p class="copyright-demo-helper-intro">勾选后，我们将限制其他用户的复制操作，并给予提醒</p>
-        <p class="copyright-demo-helper-btn">查看演示</p></div>
-    <div id="zh-tooltip"></div>
-    <div style="display: none;">
-        <div class="lang-select collapsed">
-            <div class="title-button" style="-webkit-user-select: none;">选择语言</div>
-            <i class="zg-icon zg-icon-double-arrow"></i>
-            <div class="input-wrapper">
-                <input class="filter-input zg-form-text-input" placeholder="搜索语言" role="combobox" aria-autocomplete="list"></div>
-        </div>
-    </div>
-    <div></div>
-
-    <!-- 下面是弹窗 -->
-
-            <div class="modal-dialog-buttons" style="display: none;"></div>
-        </div>
-    </div>
+#parse("js.html")
+<script type="text/javascript" src="/scripts/main/site/detail.js"></script>
 #parse("footer.html")
