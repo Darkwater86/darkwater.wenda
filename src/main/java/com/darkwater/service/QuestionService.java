@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by lenovo1 on 2017/2/1.
@@ -18,6 +19,9 @@ public class QuestionService {
 
     @Autowired
     SensitiveService sensitiveService;
+
+    @Autowired
+    KeyWordService keyWordService;
     /**
      * @return 问题id(成功)
      * @return 0（失败）
@@ -39,6 +43,9 @@ public class QuestionService {
         return questionDao.selectLatestQuestions(userId,offdset,limit);
     }
 
+    public Set<String> getKeyWords(Question question){
+        return keyWordService.filter(question.getContent());
+    }
 
     public Question getQuestionById(int id){
         return  questionDao.selectById(id);

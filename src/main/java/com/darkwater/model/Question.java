@@ -9,6 +9,9 @@ public class Question {
     private int id;
     private String title;
     private String content;
+    private Date createdDate;
+    private int userId;
+    private int commentCount;
 
     public Date getCreatedDate() {
         return createdDate;
@@ -17,9 +20,6 @@ public class Question {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
-
-    private Date createdDate;
-    private int userId;
 
     public int getId() {
         return id;
@@ -60,6 +60,4 @@ public class Question {
     public void setCommentCount(int commentCount) {
         this.commentCount = commentCount;
     }
-
-    private int commentCount;
 }

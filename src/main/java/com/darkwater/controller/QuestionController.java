@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by lenovo1 on 2017/2/9.
@@ -54,10 +55,12 @@ public class QuestionController {
     }
 
     @RequestMapping(path = {"question/{questionId}"})
-    public String Question(Model model,
+    public String questionDetail    (Model model,
                            @PathVariable("questionId")int  questionId){
         Question question = questionService.getQuestionById(questionId);
+        Set<String> keywords = questionService.getKeyWords(question);
         model.addAttribute("question",question);
+        model.addAttribute("keywords",keywords);
         return "detail";
     }
 }
