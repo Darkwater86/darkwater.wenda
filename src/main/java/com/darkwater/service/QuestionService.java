@@ -50,4 +50,6 @@ public class QuestionService {
     public Question getQuestionById(int id){
         return  questionDao.selectById(id);
     }
+
+    public void deleteQuestionById(int id){ questionDao.deleteById(id);}
 }

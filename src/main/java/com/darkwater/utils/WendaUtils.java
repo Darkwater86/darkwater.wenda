@@ -1,6 +1,7 @@
 package com.darkwater.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.darkwater.model.Comment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +16,12 @@ public class WendaUtils {
 
     public static final int ANONYMOUS_USERID = 3;
 
+    public static String getJsonString(int code,Comment comment){
+        JSONObject json = new JSONObject();
+        json.put("comment",comment);
+        json.put("code",code);
+        return json.toJSONString();
+    }
     public static String getJsonString(int code,String msg){
         JSONObject json = new JSONObject();
         json.put("code",code);
