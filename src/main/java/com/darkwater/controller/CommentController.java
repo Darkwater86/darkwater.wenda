@@ -40,7 +40,7 @@ public class CommentController {
             Comment comment = new Comment();
             comment.setContent(content);
             comment.setCreatedDate(new Date());
-            comment.setEntituType(EntityType.QUESTION);
+            comment.setEntityType(EntityType.QUESTION);
             comment.setEntityId(qid);
             comment.setStatus(0);
             if (null == hostHolder.getUser()) {

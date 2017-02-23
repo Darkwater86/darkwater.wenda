@@ -76,12 +76,14 @@ public class QuestionController {
         Set<String> keywords = questionService.getKeyWords(question);
 
         List<ViewObject> vos = new ArrayList<>();
-        List<Comment> comments = commentDao.selectLatestCommentsByEntityId(questionId, EntityType.QUESTION, 0, 10);
-        for (Comment comment : comments) {
-            ViewObject vo = new ViewObject();
-            vo.set("comment", comment);
-            vo.set("user", userService.getUserById(comment.getUserId()));
-            vos.add(vo);
+        if (null != commentDao.selectLatestCommentsByEntityId(questionId, EntityType.QUESTION,0,10)) {
+            List<Comment> comments = commentDao.selectLatestCommentsByEntityId(questionId, EntityType.QUESTION,0,10);
+            for (Comment comment : comments) {
+                ViewObject vo = new ViewObject();
+                vo.set("comment", comment);
+                vo.set("user", userService.getUserById(comment.getUserId()));
+                vos.add(vo);
+            }
         }
         model.addAttribute("vos", vos);
         model.addAttribute("question", question);

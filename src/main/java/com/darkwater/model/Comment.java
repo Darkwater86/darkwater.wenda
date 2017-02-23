@@ -9,7 +9,7 @@ public class Comment {
     private int id;
     private int userId;
     private int entityId;
-    private int entituType;
+    private int entityType;
     private String content;
     private Date createdDate;
     private int status;
@@ -38,12 +38,12 @@ public class Comment {
         this.entityId = entityId;
     }
 
-    public int getEntituType() {
-        return entituType;
+    public int getEntityType() {
+        return entityType;
     }
 
-    public void setEntituType(int entituType) {
-        this.entituType = entituType;
+    public void setEntityType(int entityType) {
+        this.entityType = entityType;
     }
 
     public String getContent() {

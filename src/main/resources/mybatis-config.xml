@@ -11,6 +11,7 @@
     </settings>
     <mappers>
         <mapper resource="com.darkwater.dao/QuestionDao.xml"/>
+        <mapper resource="com.darkwater.dao/CommentDao.xml"/>
         <!--<package name="com.darkwater.dao"/>-->
     </mappers>
 </configuration>

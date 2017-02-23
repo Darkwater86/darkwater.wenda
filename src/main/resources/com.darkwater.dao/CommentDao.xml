@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.darkwater.dao.QuestionDao">
+<mapper namespace="com.darkwater.dao.CommentDao">
     <sql id="table">comment</sql>
     <sql id="selectFields">content,user_id,entity_id,entity_type,created_date,status</sql>
     <select id="selectLatestCommentsByEntityId" resultType="com.darkwater.model.Comment">

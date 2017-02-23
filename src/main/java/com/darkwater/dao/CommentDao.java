@@ -24,12 +24,16 @@ public interface CommentDao {
                                                  @Param("offset") int offset,
                                                  @Param("limit") int limit);
 
+    @Select({"select ", SELECT_FIELD, " from ", TABLE_NAME, " where entity_id = #{entityId} and entity_type = #{entityType} order by created_date desc"})
+    List<Comment> selectCommentsByEntity(@Param("entityId") int entityId,
+                                         @Param("entityType") int entityType);
+
     //增加评论
-    @Insert({"insert into ", TABLE_NAME, "(", INSERT_FIELD, ") values(#{comtent},#{userId},#{createdDate},#{entityId},#{entityType},#{status})"})
+    @Insert({"insert into ", TABLE_NAME, "(", INSERT_FIELD, ") values(#{content},#{userId},#{entityId},#{entityType},#{createdDate},#{status})"})
     int addComment(Comment comment);
 
     //通过实体（问题）查找评论数量
-    @Select({"select count(id) from ", TABLE_NAME, " where entity_id = #{entityId} and entity_type = #{entityType} order by desc"})
+    @Select({"select count(id) from ", TABLE_NAME, " where entity_id = #{entityId} and entity_type = #{entityType}"})
     int getCommentCount(@Param("entityId") int entityId, @Param("entityType") int entityType);
 
     //通过ID查找评论
