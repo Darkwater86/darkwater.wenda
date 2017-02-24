@@ -31,15 +31,15 @@ public class CommentController {
     HostHolder hostHolder;
 
     @RequestMapping(value = {"/addComment"}, method = RequestMethod.POST)
-    @ResponseBody
+//    @ResponseBody
     public String addQuestion(@RequestParam("content") String content,
-                              @RequestParam("questionId") int questionId) {
+                              @RequestParam("qid") int qid) {
         try {
             Comment comment = new Comment();
             comment.setContent(content);
             comment.setCreatedDate(new Date());
             comment.setEntityType(EntityType.QUESTION);
-            comment.setEntityId(questionId);
+            comment.setEntityId(qid);
             comment.setStatus(0);
             if (null == hostHolder.getUser()) {
                 comment.setUserId(WendaUtils.ANONYMOUS_USERID);
@@ -47,12 +47,14 @@ public class CommentController {
                 comment.setUserId(hostHolder.getUser().getId());
             }
             if (commentService.addComment(comment) > 0) {
-                return WendaUtils.getJsonString(0, comment);
+//                return WendaUtils.getJsonString(0, comment);
+                return "redirect:/question/" + qid;
             }
         } catch (Exception e) {
             LOGGER.error("comment增加问题失败" + e.getMessage());
         }
-        return WendaUtils.getJsonString(1, "失败");
+//        return WendaUtils.getJsonString(1, "失败");
+        return "redirect:/question/" + qid;
     }
 
     @RequestMapping(path = {"/commentDel"})
