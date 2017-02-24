@@ -54,7 +54,7 @@ public interface CommentDao {
 
     //更新评论的状态（是否删除，是否显示）
     @Update({"update ", TABLE_NAME, " set status = #{status} where id = #{id}"})
-    int updateStatus(int id, int status);
+    int updateStatus(@Param("id") int id,@Param("status") int status);
 
 //    @Select({"select ", SELECT_FIELD, " from ", TABLE_NAME, " where entity_id = #{entityId}"})
 //    Comment selectByEntityId(int entityId);

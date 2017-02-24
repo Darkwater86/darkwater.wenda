@@ -37,8 +37,8 @@ public class CommentService {
     }
 
     //delete comment
-    public int deleteComment(int id, int status) {
-        return commentDao.updateStatus(id, status);
+    public boolean deleteComment(int id) {
+        return commentDao.updateStatus(id, 1) > 0;
     }
 
     //get a comment by id
@@ -47,7 +47,7 @@ public class CommentService {
     }
 
     //get comments by userId
-    public List<Comment> getCommentsByUserId(int userId){
+    public List<Comment> getCommentsByUserId(int userId) {
         return commentDao.selectByUserId(userId);
     }
 

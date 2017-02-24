@@ -62,4 +62,5 @@ public class CommentController {
                                  @PathVariable("qid") int qid) {
         return "redirect:/question/" + qid;
     }
+
 }
