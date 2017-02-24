@@ -13,7 +13,7 @@
         <div class="zm-votebar goog-scrollfloater" data-za-module="VoteBar">
             <button class="up" aria-pressed="false" title="赞同">
                 <i class="icon vote-arrow"></i>
-                <span class="count">$!{vo.comment.content}</span>
+                <span class="count">0</span>
                 <span class="label sr-only">赞同</span></button>
             <button class="down" aria-pressed="false" title="反对，不会显示你的姓名">
                 <i class="icon vote-arrow"></i>
