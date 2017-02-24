@@ -30,18 +30,16 @@ public class CommentController {
     @Autowired
     HostHolder hostHolder;
 
-    @RequestMapping(value = {"question/{qid}/add"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/addComment"}, method = RequestMethod.POST)
     @ResponseBody
-    public String addQuestion(@PathVariable("qid") int qid,
-                              @RequestParam("content") String content,
-                              @RequestParam("entityId") int entityId,
-                              @RequestParam("entityType") int entityType) {
+    public String addQuestion(@RequestParam("content") String content,
+                              @RequestParam("questionId") int questionId) {
         try {
             Comment comment = new Comment();
             comment.setContent(content);
             comment.setCreatedDate(new Date());
             comment.setEntityType(EntityType.QUESTION);
-            comment.setEntityId(qid);
+            comment.setEntityId(questionId);
             comment.setStatus(0);
             if (null == hostHolder.getUser()) {
                 comment.setUserId(WendaUtils.ANONYMOUS_USERID);
@@ -57,9 +55,17 @@ public class CommentController {
         return WendaUtils.getJsonString(1, "失败");
     }
 
-    @RequestMapping(path = {"/question/{qid}/del"})
-    public String questionDetail(Model model,
-                                 @PathVariable("qid") int qid) {
+    @RequestMapping(path = {"/commentDel"})
+    public String commentDetail(Model model,
+                                @RequestParam("cid") int cid,
+                                @RequestParam("qid") int qid) {
+        try {
+        if (!commentService.deleteComment(cid)) {
+            model.addAttribute("cErrMsg", "评论删除错误");
+        }
+        }catch (Exception e){
+            LOGGER.error("删除评论失败"+e.getMessage());
+        }
         return "redirect:/question/" + qid;
     }
 
