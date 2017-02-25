@@ -79,10 +79,12 @@ public class QuestionController {
         if (null != commentDao.selectLatestCommentsByEntityId(questionId, EntityType.QUESTION,0,10)) {
             List<Comment> comments = commentDao.selectLatestCommentsByEntityId(questionId, EntityType.QUESTION,0,10);
             for (Comment comment : comments) {
-                ViewObject vo = new ViewObject();
-                vo.set("comment", comment);
-                vo.set("user", userService.getUserById(comment.getUserId()));
-                vos.add(vo);
+                if (1 != comment.getStatus()) {
+                    ViewObject vo = new ViewObject();
+                    vo.set("comment", comment);
+                    vo.set("user", userService.getUserById(comment.getUserId()));
+                    vos.add(vo);
+                }
             }
         }
         model.addAttribute("vos", vos);
